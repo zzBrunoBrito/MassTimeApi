@@ -32,10 +32,11 @@ module.exports.index = async event => {
 // (async () => {
 //   const event = {
 //     queryStringParameters: {
-//       lat: 40.419,
-//       lng: -80.574
+//       lat: 45.419,
+//       lng: -80.674
 //     }
 //   };
 //
-//   console.log(await main(event));
+//   // console.log(await main(event));
+//   await main(event);
 // })();
