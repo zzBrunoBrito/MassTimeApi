@@ -1,12 +1,14 @@
-Hi, the main file is handler.js, masstime_api.js are functions i used to complete the task
-I'm using axios to make http requests and lat and long values are hard coded(line 6 and 7 - handler.js)
-The errors from MassTimes api are returned to the client, if the server dont responds a error is returned as well
-I also added a serverless.yml file and configured it to expose this lambda as http endpoint and to run every 12 hours too
-But i didn't actually deployed it, so this serverless.yml is just to show how i would manage lambdas, may need changes to a real deploy
-To run it you can uncomment the lines 37, 38 and 39 of handler.js or if you have serverless framework installed:
+Hi, the main file is handler.js, masstime_api.js and helper.js are functions i used to complete the task
+I'm using axios to make http requests
+The errors messages from MassTimes api are returned to the client as required and also i'm returning headers, so browser or any
+kind of client can use content-type header to render correctly the response(masstimes api sometimes returns html when there are errors)
+If the server dont responds a error is returned as well
+I also added a serverless.yml file and configured it to expose this lambda as GET http endpoint
+If you need to deploy it you can upload the zip file or just run "sls deploy" if serverless framework is already installed
+To run it locally you can uncomment the lines 32-41 of handler.js or if you have serverless framework installed:
 sls invoke local --function get_churches
 
-* Despite being a relatively simple task to complete, may it could be solved with a single file and no dependencies,
+* Despite being a relatively simple task to complete, may it could be solved with a single file and no external dependencies(axios),
 I tried to use a bit more complex solution to show things like lambda management with serverless framework,
 consuming libs, error handling and simpler things like check if a value exists before manipulate it
 so the code don't break when there are null values, for instance.
