@@ -1,0 +1,15 @@
+{
+  "name": "tabella",
+  "version": "1.0.0",
+  "description": "",
+  "main": "masstime_api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "axios": "^0.20.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
