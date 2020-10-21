@@ -1,32 +1,27 @@
 'use strict';
 const { requestMassApiChurches, getChurchesFormatted } = require('./masstime_api');
+const { getQueryParams, makeResponse } = require('./helper');
 
 async function main(event) {
   try {
-    const lat = 40.419;
-    const lng = -80.574;
-    const { status, body: data } = await requestMassApiChurches(lat, lng);
+    const { lat, lng } = getQueryParams(event);
+    const { status, body: data, headers } = await requestMassApiChurches(lat, lng);
+
     if (status === 200 && data && data.length) {
       const churchesFormatted = getChurchesFormatted(data);
-      return {
-        statusCode: status,
-        body: JSON.stringify(churchesFormatted)
-      }
+      return makeResponse(churchesFormatted, headers, status)
     }
 
-    return {
-      statusCode: status,
-      body: data
-    };
+    return makeResponse(data, headers, status)
 
   } catch (e) {
     console.log(e);
-    return {
-      statusCode: 400,
-      body: JSON.stringify({
-        message: "Hi, I'm a generic error. Please see the logs to see more details."
-      })
-    };
+    return makeResponse(
+        {
+          message: "Hi, I'm a generic error. Please see the logs to see more details."
+        },
+        {},
+        400)
   }
 }
 
@@ -35,5 +30,12 @@ module.exports.index = async event => {
 };
 
 // (async () => {
-//   console.log(await main({}));
+//   const event = {
+//     queryStringParameters: {
+//       lat: 40.419,
+//       lng: -80.574
+//     }
+//   };
+//
+//   console.log(await main(event));
 // })();

@@ -25,7 +25,8 @@ function handleMassApiExceptions(e) {
     if (e.response) {
         return {
             status: e.response.status,
-            body: e.response.data
+            body: e.response.data,
+            headers: e.response.headers
         }
     }
 
@@ -43,9 +44,9 @@ async function requestMassApiChurches(lat, lng) {
     try {
         const response = await axios.get(`https://apiv4.updateparishdata.org/Churchs/?lat=${lat}&long=${lng}&pg=1`);
         if (response.data) {
-            return { status: response.status, body: response.data };
+            return { status: response.status, body: response.data, headers: response.headers };
         }
-        return { status: response.status, body: {} };
+        return { status: response.status, body: {}, headers: response.headers };
     }catch (e) {
         return handleMassApiExceptions(e);
     }
