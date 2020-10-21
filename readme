@@ -14,4 +14,4 @@ consuming libs, error handling and simpler things like check if a value exists b
 so the code don't break when there are null values, for instance.
 
 ** I also deployed this lambda on my personal aws account, I'll keep it there for some days, if you need can access like this:
-https://oe7rq83jzb.execute-api.us-east-1.amazonaws.com/dev/churches?lat=45.419&lng=-80.674&pg=1
+https://oe7rq83jzb.execute-api.us-east-1.amazonaws.com/dev/churches?lat=45.419&long=-80.674&pg=1
