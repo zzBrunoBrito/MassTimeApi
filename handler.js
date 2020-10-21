@@ -33,3 +33,7 @@ async function main(event) {
 module.exports.index = async event => {
   return await main(event);
 };
+
+// (async () => {
+//   console.log(await main({}));
+// })();

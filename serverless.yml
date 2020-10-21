@@ -24,3 +24,5 @@ functions:
       - http:
           path: churches
           method: get
+      - schedule:
+          rate(12 hours)
