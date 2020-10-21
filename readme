@@ -1,10 +1,10 @@
 Hi, the main file is handler.js, masstime_api.js and helper.js are functions i used to complete the task
 I'm using axios to make http requests
-The errors messages from MassTimes api are returned to the client as required and also i'm returning headers, so browser or any
+The errors messages from MassTimes api are returned to the client as required and i'm also returning headers, so browser or any
 kind of client can use content-type header to render correctly the response(masstimes api sometimes returns html when there are errors)
-If the server dont responds a error is returned as well
+If the server doesn't respond, a error is returned as well
 I also added a serverless.yml file and configured it to expose this lambda as GET http endpoint
-If you need to deploy it you can upload the zip file or just run "sls deploy" if serverless framework is already installed
+If you need to deploy it you can upload the files as .zip or just run "sls deploy" if serverless framework is already installed
 To run it locally you can uncomment the lines 32-41 of handler.js or if you have serverless framework installed:
 sls invoke local --function get_churches
 

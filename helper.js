@@ -1,7 +1,7 @@
 function getQueryParams(event) {
     const querystr = event.queryStringParameters;
     if (querystr) {
-        const { lat, lng } = querystr;
+        const { lat, long:lng } = querystr;
         return {lat, lng}
     }
     return { lat:'', lng: '' }
